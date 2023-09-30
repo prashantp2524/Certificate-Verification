@@ -5,7 +5,7 @@ const certificateVerify = async (req, res) => {
     const qrCode = req.params.qrCode;
     const data = await Certificate.find({ std_Id: qrCode });
     // console.log(data);
-    res.json("done!!", data);
+    res.json(data);
   } catch (error) {
     console.log(error);
   }
