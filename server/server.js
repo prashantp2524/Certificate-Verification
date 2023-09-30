@@ -13,6 +13,9 @@ connectDB();
 app.use(express.json());
 const port = process.env.PORT;
 app.use("/api/certificate", certificateVerifyRoute);
+app.get("/", (req, res) => {
+  res.json("Hello world");
+});
 
 // const dataArray = [];
 
