@@ -33,7 +33,7 @@ const CertificateVerification = () =>
 
 
                 <QrReader
-                    delay={300}
+                    scanDelay={300}
                     onError={handleError}
                     onResult={handleScan}
                     constraints={{
