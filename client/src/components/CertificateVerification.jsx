@@ -54,13 +54,8 @@ const CertificateVerification = () =>
 
                 {verificationResult && (
                     <div>
-                        <h2>Verification Result</h2>
-                        <p>Certificate Details:</p>
-                        <ul>
-                            <li>Recipient Name: {verificationResult.recipientName}</li>
-                            <li>Certificate Number: {verificationResult.certificateNumber}</li>
-                            {/* Add more certificate attributes here */}
-                        </ul>
+                        <h2>Verification Result Success</h2>
+
                     </div>
                 )
                 }
