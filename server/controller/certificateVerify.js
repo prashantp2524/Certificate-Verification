@@ -2,14 +2,16 @@ import Certificate from "../models/certificateSchema.js";
 
 const certificateVerify = async (req, res) => {
   try {
-    const qrCode = req.params.qrCode;
+    const { qrCode } = req.body;
+    console.log(qrCode);
     const certificateData = await Certificate.find({ std_Id: qrCode });
-
+    // console.log(certificateData);
     const matchedCertificate = certificateData.find(
-      (cert) => cert.qrurl === qrCode
+      (cert) => cert.std_Id == qrCode
     );
+
     if (matchedCertificate) {
-      res.json({ verified: true, certificate: matchedCertificate });
+      res.json(matchedCertificate);
     } else {
       res.json({ verified: false });
     }

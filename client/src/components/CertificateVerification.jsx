@@ -4,61 +4,40 @@ import axios from 'axios';
 
 const CertificateVerification = () =>
 {
-    const [qrCode, setQRCode] = useState('');
-    const [verificationResult, setVerificationResult] = useState(null);
+    const [result, setResult] = useState("no result")
 
+    // const handleSubmit = async () =>
+    // {
+    //     const qrData = {
+    //         qrCode: 101
+    //     }
+    //     const result = await axios.post('/verify', qrData)
+    //     console.log(result.data)
+    // };
     const handleScan = (data) =>
     {
-        if (data)
-        {
-            setQRCode(data)
-            verifyCertificate(data)
-        }
+        setResult(data)
+        console.log(result)
     }
-
     const handleError = (error) =>
     {
-        console.log(error)
-    }
-
-    const verifyCertificate = async (qrCode) =>
-    {
-        try
-        {
-            const response = await axios.get(`/verify/${qrCode}`)
-            const result = response.data;
-
-            if (result.verified)
-            {
-                setVerificationResult(result.certificate)
-            } else
-            {
-                setVerificationResult(null);
-            }
-        } catch (error)
-        {
-            console.error('Error verifying certificate:', error);
-        }
-    }
+        console.error(error);
+    };
     return (
+
 
         <>
             <div style={{ width: '50vw', height: '50vh', }}>
                 <h1>Certificate Verification</h1>
+                {/* <button type='submit' onClick={handleSubmit}>submit qrcode</button> */}
+
+
                 <QrReader
-                    scanDelay={300}
+                    delay={300}
                     onError={handleError}
                     onResult={handleScan}
                     style={{ width: '100%' }}
                 />
-
-                {verificationResult && (
-                    <div>
-                        <h2>Verification Result Success</h2>
-
-                    </div>
-                )
-                }
             </div>
         </>
 

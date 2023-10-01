@@ -2,15 +2,20 @@ import express from "express";
 import axios from "axios";
 import fs from "fs";
 import csv from "csv-parser";
-import Certificate from "./models/certificateSchema.js";
+import cors from "cors";
+// import Certificate from "./models/certificateSchema.js";
 import certificateVerifyRoute from "./routes/certificateVerifyRoute.js";
+import bodyParser from "body-parser";
 const app = express();
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 dotenv.config();
 connectDB();
 
+app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
+app.enable("trust proxy");
 const port = process.env.PORT;
 app.use("/api/certificate", certificateVerifyRoute);
 app.get("/", (req, res) => {

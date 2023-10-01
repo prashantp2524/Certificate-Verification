@@ -3,6 +3,6 @@ import { certificateVerify } from "../controller/certificateVerify.js";
 
 const router = express.Router();
 
-router.get("/verify/:qrCode", certificateVerify);
+router.post("/verify", certificateVerify);
 
 export default router;
