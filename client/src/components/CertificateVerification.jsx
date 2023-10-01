@@ -48,7 +48,7 @@ const CertificateVerification = () =>
                 <QrReader
                     scanDelay={300}
                     onError={handleError}
-                    onScan={handleScan}
+                    onResult={handleScan}
                     style={{ width: '100%' }}
                 />
 
