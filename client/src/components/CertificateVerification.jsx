@@ -37,7 +37,7 @@ const CertificateVerification = () =>
                 const qrData = {
                     qrCode: data?.text
                 }
-                const response = await axios.post('http://localhost:5000/api/certificate/verify', qrData);
+                const response = await axios.post('https://certificate-verification-steel.vercel.app/api/certificate/verify', qrData);
                 console.log('Server response:', response.data);
                 setCertificateData(response.data)
             } catch (error)

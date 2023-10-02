@@ -3,9 +3,9 @@ import Certificate from "../models/certificateSchema.js";
 const certificateVerify = async (req, res) => {
   try {
     const { qrCode } = req.body;
-    console.log(qrCode);
+    // console.log(qrCode);
     const certificateData = await Certificate.find({ cert_no: qrCode });
-    console.log(certificateData);
+    // console.log(certificateData);
 
     if (certificateData) {
       res.json(certificateData);
