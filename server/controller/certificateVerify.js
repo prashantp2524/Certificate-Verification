@@ -4,14 +4,11 @@ const certificateVerify = async (req, res) => {
   try {
     const { qrCode } = req.body;
     console.log(qrCode);
-    const certificateData = await Certificate.find({ std_Id: qrCode });
-    // console.log(certificateData);
-    const matchedCertificate = certificateData.find(
-      (cert) => cert.std_Id == qrCode
-    );
+    const certificateData = await Certificate.find({ cert_no: qrCode });
+    console.log(certificateData);
 
-    if (matchedCertificate) {
-      res.json(matchedCertificate);
+    if (certificateData) {
+      res.json(certificateData);
     } else {
       res.json({ verified: false });
     }

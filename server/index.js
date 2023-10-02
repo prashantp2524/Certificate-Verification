@@ -14,6 +14,7 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.enable("trust proxy");
 const port = process.env.PORT;
@@ -69,6 +70,7 @@ app.get("/", (req, res) => {
 //       email: row.std_email,
 //       institute: row.std_institute,
 //       qrurl: row.qrurl,
+//       cert_no: row.cert_no,
 //     });
 //   })
 //   .on("end", () => {

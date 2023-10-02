@@ -23,6 +23,11 @@ const certificateSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    cert_no: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   { timestamps: true }
 );
