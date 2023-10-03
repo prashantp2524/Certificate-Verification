@@ -44,7 +44,7 @@ const CertificateVerification = () =>
             <div style={{ width: '50vw', height: '50vh', }}>
                 <h1>Certificate Verification</h1>
 
-                <div className='d-flex justify-content-center' >
+                <div >
                     {cam ? (
                         <QrReader
                             delay={300}
