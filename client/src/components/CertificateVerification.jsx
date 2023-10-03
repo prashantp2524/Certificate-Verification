@@ -66,6 +66,11 @@ const CertificateVerification = () =>
                                     />
                                 ) : (
                                     <div>
+                                        {
+                                            certificateData && certificateData.map((data) => (
+                                                <h1>Hello</h1>
+                                            ))
+                                        }
                                         <p>Result: {result}</p>
                                         <button type='button' className='btn btn-primary' onClick={() => setCam(true)}>Scan Again</button>
                                     </div>
@@ -74,7 +79,7 @@ const CertificateVerification = () =>
                         </div>
                         <div>
 
-
+                            {/* 
                             {
                                 certificateData && certificateData.map((data) => (
                                     // <div className='container'>
@@ -96,7 +101,7 @@ const CertificateVerification = () =>
                                     <h1>Hello</h1>
 
                                 ))
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>
