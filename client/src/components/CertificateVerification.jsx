@@ -78,7 +78,7 @@ const CertificateVerification = () =>
                     {
                         certificateData && certificateData.map((data) => (
 
-                            <div class="shadow p-3 mb-5 bg-body rounded">
+                            <div className="shadow p-3 mb-5 bg-body rounded" style={{ width: '100%' }}>
                                 <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
                                     <div class="card-header">
                                         Student Certificate Data
