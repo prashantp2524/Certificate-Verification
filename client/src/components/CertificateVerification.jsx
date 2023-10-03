@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { QrReader } from 'react-qr-reader';
 import axios from 'axios';
+import './home.css'
 
 const CertificateVerification = () =>
 {
@@ -41,50 +42,63 @@ const CertificateVerification = () =>
 
 
         <>
-            <div style={{ width: '50vw', height: '50vh', }}>
-                <h1>Certificate Verification</h1>
+            <div className='home-page'>
 
-                <div >
-                    {cam ? (
-                        <QrReader
-                            delay={300}
-                            onError={handleError}
-                            onResult={handleScan}
-                            constraints={{ facingMode: "environment" }}
-                            style={{ width: '100%' }}
-                        />
-                    ) : (
-                        <div>
-                            <p>Result: {result}</p>
-                            <button type='button' className='btn btn-primary' onClick={() => setCam(true)}>Scan Again</button>
-                        </div>
-                    )}
-                </div>
-            </div>
 
-            {
-                certificateData && certificateData.map((data) => (
+                <div className='container'>
+                    <div className='d-flex justify-content-center'>
 
-                    <div class="shadow p-3 mb-5 bg-body rounded">
-                        <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
-                            <div class="card-header">
-                                Student Certificate Data
+                        <h1>Certificate Verification</h1>
+                    </div>
+                    <div className='row'>
+
+
+                        <div className='col' >
+
+                            <div >
+                                {cam ? (
+                                    <QrReader
+                                        delay={300}
+                                        onError={handleError}
+                                        onResult={handleScan}
+                                        constraints={{ facingMode: "environment" }}
+                                        style={{ width: '100%' }}
+                                    />
+                                ) : (
+                                    <div>
+                                        <p>Result: {result}</p>
+                                        <button type='button' className='btn btn-primary' onClick={() => setCam(true)}>Scan Again</button>
+                                    </div>
+                                )}
                             </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">ID: {data.std_Id}</li>
-                                <li class="list-group-item">Name: {data.name}</li>
-                                <li class="list-group-item">Email: {data.email}</li>
-                                <li class="list-group-item">Institute: {data.institute}</li>
-                                <li class="list-group-item">Certificate No : {data.cert_no}</li>
-                            </ul>
+                        </div>
+                        <div className='col'>
+
+
+                            {
+                                certificateData && certificateData.map((data) => (
+
+                                    <div class="shadow p-3 mb-5 bg-body rounded">
+                                        <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
+                                            <div class="card-header">
+                                                Student Certificate Data
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">ID: {data.std_Id}</li>
+                                                <li class="list-group-item">Name: {data.name}</li>
+                                                <li class="list-group-item">Email: {data.email}</li>
+                                                <li class="list-group-item">Institute: {data.institute}</li>
+                                                <li class="list-group-item">Certificate No : {data.cert_no}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                ))
+                            }
                         </div>
                     </div>
-
-                ))
-
-
-
-            }
+                </div>
+            </div>
         </>
 
 

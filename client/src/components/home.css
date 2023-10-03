@@ -1,0 +1,25 @@
+.home-page {
+  background: linear-gradient(
+    90deg,
+    rgba(225, 36, 64, 1) 2%,
+    rgba(228, 37, 224, 1) 44%,
+    rgba(29, 37, 253, 1) 100%,
+    rgba(166, 50, 137, 1) 100%,
+    rgba(131, 58, 180, 1) 100%
+  );
+  height: 100vh;
+  width: 100%;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: white;
+}
+.cutomBtn {
+  font-weight: bold;
+}
+.cutomBtn:hover {
+  border-color: white;
+}
