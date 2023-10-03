@@ -53,7 +53,7 @@ const CertificateVerification = () =>
                     <div className='row'>
 
 
-                        <div className='col' >
+                        <div className='col col-xs-12' >
 
                             <div >
                                 {cam ? (
@@ -72,7 +72,7 @@ const CertificateVerification = () =>
                                 )}
                             </div>
                         </div>
-                        <div className='col'>
+                        <div className='col  col-xs-12'>
 
 
                             {
