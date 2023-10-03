@@ -9,7 +9,7 @@ const HomePage = () =>
                 <h1>Home Page</h1>
             </div>
             <div>
-                <Link to={'verify'}> <button>Verify</button></Link>
+                <Link to={'verify'}> <button type='button' className='btn btn-primary'>Verify</button></Link>
             </div>
         </>
     )

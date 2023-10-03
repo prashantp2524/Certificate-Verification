@@ -8,22 +8,6 @@ const CertificateVerification = () =>
     const [certificateData, setCertificateData] = useState()
     const [cam, setCam] = useState(true)
 
-    // const handleSubmit = async () =>
-    // {
-
-    //     try
-    //     {
-    //         const qrData = {
-    //             qrCode: 1006
-    //         }
-    //         const response = await axios.post('http://localhost:5000/api/certificate/verify', qrData);
-    //         console.log('Server response:', response.data);
-    //     } catch (error)
-    //     {
-    //         console.error('Error:', error);
-    //     }
-    // };
-
 
     const handleScan = async (data) =>
     {
@@ -51,11 +35,7 @@ const CertificateVerification = () =>
     {
         console.error(error);
     };
-    // console.log(result)
-    // useEffect(() =>
-    // {
-    //     setCam(true);
-    // }, [cam]);
+
 
     return (
 
@@ -64,9 +44,7 @@ const CertificateVerification = () =>
             <div style={{ width: '50vw', height: '50vh', }}>
                 <h1>Certificate Verification</h1>
 
-
-
-                <div>
+                <div className='d-flex justify-content-center' >
                     {cam ? (
                         <QrReader
                             delay={300}
@@ -78,26 +56,30 @@ const CertificateVerification = () =>
                     ) : (
                         <div>
                             <p>Result: {result}</p>
-                            <button onClick={() => setCam(true)}>Scan Again</button>
+                            <button type='button' className='btn btn-primary' onClick={() => setCam(true)}>Scan Again</button>
                         </div>
                     )}
                 </div>
             </div>
 
-            {/* <div>
-                <button type='submit' onClick={handleSubmit}>submit qrcode</button>
-            </div> */}
-
-
-
             {
                 certificateData && certificateData.map((data) => (
-
-                    <div key={data.std_Id}>
-                        <h1>{data.name}</h1>
-                        <h1>{data.email}</h1>
-                        <h1>{data.institute}</h1>
-                    </div>
+                    <>
+                        <div class="shadow p-3 mb-5 bg-body rounded">
+                            <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
+                                <div class="card-header">
+                                    Student Certificate Data
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">ID: {data.std_Id}</li>
+                                    <li class="list-group-item">Name: {data.name}</li>
+                                    <li class="list-group-item">Email: {data.email}</li>
+                                    <li class="list-group-item">Institute: {data.institute}</li>
+                                    <li class="list-group-item">Certificate No : {data.cert_no}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </>
                 ))
 
 
