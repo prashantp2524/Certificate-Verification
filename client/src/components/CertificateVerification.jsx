@@ -64,32 +64,32 @@ const CertificateVerification = () =>
                                 videoContainerStyle={{ width: '100%', height: '50vh' }}
                             />
 
+
                         ) : (
                             <div>
-                                <div >
 
 
-                                    {
-                                        certificateData && certificateData.map((data) => (
+                                {
+                                    certificateData && certificateData.map((data) => (
 
-                                            <div class="shadow p-3 mb-5 bg-body rounded">
-                                                <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
-                                                    <div class="card-header">
-                                                        Student Certificate Data
-                                                    </div>
-                                                    <ul class="list-group list-group-flush">
-                                                        <li class="list-group-item">ID: {data.std_Id}</li>
-                                                        <li class="list-group-item">Name: {data.name}</li>
-                                                        <li class="list-group-item">Email: {data.email}</li>
-                                                        <li class="list-group-item">Institute: {data.institute}</li>
-                                                        <li class="list-group-item">Certificate No : {data.cert_no}</li>
-                                                    </ul>
+                                        <div class="shadow p-3 mb-5 bg-body rounded">
+                                            <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
+                                                <div class="card-header">
+                                                    Student Certificate Data
                                                 </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">ID: {data.std_Id}</li>
+                                                    <li class="list-group-item">Name: {data.name}</li>
+                                                    <li class="list-group-item">Email: {data.email}</li>
+                                                    <li class="list-group-item">Institute: {data.institute}</li>
+                                                    <li class="list-group-item">Certificate No : {data.cert_no}</li>
+                                                </ul>
                                             </div>
+                                        </div>
 
-                                        ))
-                                    }
-                                </div>
+                                    ))
+                                }
+
                                 <button type='button' className='btn btn-primary' onClick={onclickHandler}>Scan Again</button>
                             </div>
                         )}
