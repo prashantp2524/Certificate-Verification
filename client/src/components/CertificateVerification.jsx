@@ -38,7 +38,7 @@ const CertificateVerification = () =>
                     qrCode: data?.text
                 }
                 const response = await axios.post('https://certificate-verification-steel.vercel.app/api/certificate/verify', qrData);
-                console.log('Server response:', response.data);
+                // console.log('Server response:', response.data);
                 setCertificateData(response.data)
             } catch (error)
             {
@@ -51,11 +51,11 @@ const CertificateVerification = () =>
     {
         console.error(error);
     };
-    console.log(result)
-    useEffect(() =>
-    {
-        setCam(true);
-    }, [cam]);
+    // console.log(result)
+    // useEffect(() =>
+    // {
+    //     setCam(true);
+    // }, [cam]);
 
     return (
 
