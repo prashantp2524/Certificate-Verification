@@ -36,11 +36,7 @@ const CertificateVerification = () =>
     {
         console.error(error);
     };
-    const onclickHandler = () =>
-    {
-        setCam(true)
 
-    }
 
     return (
 
@@ -54,49 +50,55 @@ const CertificateVerification = () =>
 
                         <h1>Certificate Verification</h1>
                     </div>
-                    <div style={{ height: '50vh' }}>
-                        {cam ? (
-                            <QrReader
-                                delay={300}
-                                onError={handleError}
-                                onResult={handleScan}
-                                constraints={{ facingMode: "environment" }}
-                                videoContainerStyle={{ width: '100%', height: '50vh' }}
-                            />
+                    <div className='row'>
 
 
-                        ) : (
-                            <div>
+                        <div style={{ width: '50vw', height: '50vh', }}>
 
-
-
-                                <button type='button' className='btn btn-primary' onClick={onclickHandler}>Scan Again</button>
-
-                            </div>
-                        )}
-                    </div>
-
-                </div>
-                {
-                    certificateData && certificateData.map((data) => (
-
-                        <div className="shadow p-3 mb-5 bg-body rounded">
-                            <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
-                                <div class="card-header">
-                                    Student Certificate Data
-                                </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">ID: {data.std_Id}</li>
-                                    <li class="list-group-item">Name: {data.name}</li>
-                                    <li class="list-group-item">Email: {data.email}</li>
-                                    <li class="list-group-item">Institute: {data.institute}</li>
-                                    <li class="list-group-item">Certificate No : {data.cert_no}</li>
-                                </ul>
+                            <div >
+                                {cam ? (
+                                    <QrReader
+                                        delay={300}
+                                        onError={handleError}
+                                        onResult={handleScan}
+                                        constraints={{ facingMode: "environment" }}
+                                        style={{ width: '100%' }}
+                                    />
+                                ) : (
+                                    <div>
+                                        <p>Result: {result}</p>
+                                        <button type='button' className='btn btn-primary' onClick={() => setCam(true)}>Scan Again</button>
+                                    </div>
+                                )}
                             </div>
                         </div>
-                    ))
-                }
-            </div >
+                        <div>
+
+
+                            {
+                                certificateData && certificateData.map((data) => (
+
+                                    <div class="shadow p-3 mb-5 bg-body rounded">
+                                        <div class="card" style={{ width: "18rem" }} key={data.std_Id}>
+                                            <div class="card-header">
+                                                Student Certificate Data
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">ID: {data.std_Id}</li>
+                                                <li class="list-group-item">Name: {data.name}</li>
+                                                <li class="list-group-item">Email: {data.email}</li>
+                                                <li class="list-group-item">Institute: {data.institute}</li>
+                                                <li class="list-group-item">Certificate No : {data.cert_no}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
 
 
